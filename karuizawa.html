@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>軽井沢 – 自治医大 少林寺拳法部 追いコン 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── ページヒーロー ── */
+  .page-hero {
+    position: relative;
+    height: 240px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero .hero-bg { background-color: #6e8a6a; background-image: url('images/karuizawa-forest.jpg'); }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to bottom, rgba(26,20,18,.08) 0%, rgba(26,20,18,.72) 100%);
+  }
+  .page-hero-content {
+    position: relative; z-index: 2;
+    padding: 0 22px 30px;
+    color: #fff;
+  }
+  .page-hero-content .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,.85);
+  }
+  .page-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero { height: 300px; }
+    .page-hero-content { padding-left: calc((100vw - 680px)/2 + 22px); }
+    .page-hero-content h1 { font-size: 2.3rem; }
+  }
+
+  /* ── 本文 ── */
+  .intro-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--clr-text);
+    margin-bottom: 40px;
+  }
+
+  /* ── 見どころカード ── */
+  .spot-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--clr-dark);
+  }
+
+  .spot-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .spot-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .spot-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateX(4px);
+  }
+  .spot-card .spot-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .spot-card h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .spot-card p { font-size: 13px; color: var(--clr-text-sub); margin-top: 2px; }
+
+  /* ── 遷移ボタン ── */
+  .page-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 44px;
+  }
+  .page-nav .btn { flex: 1 1 140px; }
+</style>
+</head>
+<body>
+
+<!-- ── ヘッダー ── -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">少林寺拳法部 <span>追いコン</span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">TOP</a>
+      <a href="schedule.html">スケジュール</a>
+      <a href="kusatsu.html">草津</a>
+      <a href="karuizawa.html">軽井沢</a>
+      <a href="lodge.html">宿舎</a>
+      <a href="cars.html">配車</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-panel" id="nav-panel">
+  <ul>
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="schedule.html">スケジュール</a></li>
+    <li><a href="kusatsu.html">草津</a></li>
+    <li><a href="karuizawa.html">軽井沢</a></li>
+    <li><a href="lodge.html">宿舎</a></li>
+    <li><a href="cars.html">配車</a></li>
+  </ul>
+</nav>
+
+<!-- ── ページヒーロー ── -->
+<div class="page-content">
+  <section class="page-hero">
+    <div class="hero-bg" style="background-color:#6e8a6a; background-image:url('images/karuizawa-forest.jpg');"></div>
+    <div class="page-hero-content">
+      <div class="tag">Day 2 – Destination</div>
+      <h1>軽井沢とは</h1>
+    </div>
+  </section>
+
+  <!-- ── コンテンツ ── -->
+  <section class="section">
+    <p class="intro-text fade-up">
+      避暑地として知られる軽井沢は、豊かな自然と<br>
+      洗練された街並みが調和する高原リゾートです。<br>
+      ショッピング、カフェ巡り、散策など、<br>
+      自由行動に適したエリアです。
+    </p>
+
+    <h3 class="spot-title fade-up">見どころ</h3>
+
+    <div class="spot-list">
+      <div class="spot-card fade-up">
+        <span class="spot-icon">🌊</span>
+        <div>
+          <h4>雲場池</h4>
+          <p>軽井沢を代表する絶景スポット。紅葉シーズンも美しい</p>
+        </div>
+      </div>
+      <div class="spot-card fade-up">
+        <span class="spot-icon">🛍️</span>
+        <div>
+          <h4>軽井沢アウトレット</h4>
+          <p>国内・海外ブランドが揃うショッピング聖地</p>
+        </div>
+      </div>
+      <div class="spot-card fade-up">
+        <span class="spot-icon">☕</span>
+        <div>
+          <h4>旧軽井沢銀座通り</h4>
+          <p>洒落たカフェやブティックが並ぶ、散策の定番コース</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 遷移ボタン -->
+    <div class="page-nav">
+      <a href="kusatsu.html" class="btn btn-outline fade-up">← 草津へ</a>
+      <a href="lodge.html"   class="btn btn-accent  fade-up">宿舎へ →</a>
+    </div>
+  </section>
+</div>
+
+<!-- ── フォーター ── -->
+<footer>
+  <p class="footer-logo">自治医科大学 少林寺拳法部</p>
+  <p>© 2026 Jichi Medical University – Shōrin-ji Kenpō Bu</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

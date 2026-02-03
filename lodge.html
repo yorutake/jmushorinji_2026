@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宿舎 – 自治医大 少林寺拳法部 追いコン 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── ページヒーロー ── */
+  .page-hero {
+    position: relative;
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero .hero-bg { background-color: #8e8070; background-image: url('images/lodge-hero.jpg'); }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to bottom, rgba(26,20,18,.1) 0%, rgba(26,20,18,.68) 100%);
+  }
+  .page-hero-content {
+    position: relative; z-index: 2;
+    padding: 0 22px 28px;
+    color: #fff;
+  }
+  .page-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero { height: 270px; }
+    .page-hero-content { padding-left: calc((100vw - 680px)/2 + 22px); }
+    .page-hero-content h1 { font-size: 2rem; }
+  }
+
+  /* ── 宿舎名バナー ── */
+  .lodge-name-banner {
+    background: var(--clr-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 28px 22px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .lodge-name-banner .sub { font-size: 12px; letter-spacing: 2px; color: var(--clr-text-sub); margin-bottom: 6px; }
+  .lodge-name-banner h2 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--clr-dark);
+  }
+  .lodge-name-banner .address {
+    font-size: 13px;
+    color: var(--clr-text-sub);
+    margin-top: 6px;
+  }
+
+  /* ── 情報グリッド ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .info-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 20px 18px;
+  }
+  .info-card .info-icon { font-size: 22px; margin-bottom: 8px; }
+  .info-card .info-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--clr-text-sub);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .info-card .info-value {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--clr-dark);
+  }
+
+  /* ── 設備リスト ── */
+  .facility-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 22px;
+    margin-bottom: 28px;
+  }
+  .facility-card h3 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--clr-dark);
+  }
+  .facility-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .facility-tag {
+    background: var(--clr-bg);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: var(--clr-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* 夕食・宴会情報 */
+  .dinner-card {
+    background: linear-gradient(135deg, #faf5f0 0%, #fff5ee 100%);
+    border: 1px solid var(--clr-accent-lt);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 28px;
+  }
+  .dinner-card h3 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--clr-accent);
+    margin-bottom: 8px;
+  }
+  .dinner-card p { font-size: 14px; color: var(--clr-text); line-height: 1.7; }
+
+  /* ── 遷移ボタン ── */
+  .page-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .page-nav .btn { flex: 1 1 140px; }
+</style>
+</head>
+<body>
+
+<!-- ── ヘッダー ── -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">少林寺拳法部 <span>追いコン</span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">TOP</a>
+      <a href="schedule.html">スケジュール</a>
+      <a href="kusatsu.html">草津</a>
+      <a href="karuizawa.html">軽井沢</a>
+      <a href="lodge.html">宿舎</a>
+      <a href="cars.html">配車</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-panel" id="nav-panel">
+  <ul>
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="schedule.html">スケジュール</a></li>
+    <li><a href="kusatsu.html">草津</a></li>
+    <li><a href="karuizawa.html">軽井沢</a></li>
+    <li><a href="lodge.html">宿舎</a></li>
+    <li><a href="cars.html">配車</a></li>
+  </ul>
+</nav>
+
+<!-- ── ページヒーロー ── -->
+<div class="page-content">
+  <section class="page-hero">
+    <div class="hero-bg" style="background-color:#8e8070; background-image:url('images/lodge-hero.jpg');"></div>
+    <div class="page-hero-content">
+      <h1>宿舎のご案内</h1>
+    </div>
+  </section>
+
+  <!-- ── コンテンツ ── -->
+  <section class="section">
+
+    <!-- 宿舎名 -->
+    <div class="lodge-name-banner fade-up">
+      <p class="sub">LODGE</p>
+      <h2>●●荘（仮）</h2>
+      <p class="address">📍 群馬県吾妻郡草津町〇〇</p>
+    </div>
+
+    <!-- 情報グリッド -->
+    <div class="info-grid">
+      <div class="info-card fade-up">
+        <div class="info-icon">🏨</div>
+        <p class="info-label">部屋タイプ</p>
+        <p class="info-value">和室（相部屋）</p>
+      </div>
+      <div class="info-card fade-up">
+        <div class="info-icon">👥</div>
+        <p class="info-label">収容</p>
+        <p class="info-value">部員一同</p>
+      </div>
+      <div class="info-card fade-up">
+        <div class="info-icon">⏰</div>
+        <p class="info-label">チェックイン</p>
+        <p class="info-value">14:30</p>
+      </div>
+      <div class="info-card fade-up">
+        <div class="info-icon">🚪</div>
+        <p class="info-label">チェックアウト</p>
+        <p class="info-value">09:00</p>
+      </div>
+    </div>
+
+    <!-- 設備 -->
+    <div class="facility-card fade-up">
+      <h3>🏠 設備</h3>
+      <div class="facility-list">
+        <span class="facility-tag">🛁 大浴場</span>
+        <span class="facility-tag">📶 Wi-Fi</span>
+        <span class="facility-tag">🍽️ 宴会場</span>
+      </div>
+    </div>
+
+    <!-- 夕食・宴会 -->
+    <div class="dinner-card fade-up">
+      <h3>🍽️ 夕食・懇親会</h3>
+      <p>夕食は <strong>19:00〜</strong> に宴会場にて開催（宴会形式）。<br>
+         その後、<strong>20:30〜</strong> に追いコン懇親会へ。</p>
+    </div>
+
+    <!-- 遷移ボタン -->
+    <div class="page-nav">
+      <a href="karuizawa.html" class="btn btn-outline fade-up">← 軽井沢へ</a>
+      <a href="cars.html"      class="btn btn-accent  fade-up">配車へ →</a>
+    </div>
+  </section>
+</div>
+
+<!-- ── フォーター ── -->
+<footer>
+  <p class="footer-logo">自治医科大学 少林寺拳法部</p>
+  <p>© 2026 Jichi Medical University – Shōrin-ji Kenpō Bu</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

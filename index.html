@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自治医科大学 少林寺拳法部 – 2026 追いコン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── TOP 固有 ── */
+  .hero-content .tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,.55);
+    padding: 5px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    color: rgba(255,255,255,.88);
+  }
+
+  .hero-content h1 {
+    font-size: 1.85rem;
+    margin-bottom: 10px;
+  }
+  .hero-content h1 .year {
+    display: block;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 2px;
+    margin: 6px 0;
+  }
+  .hero-content .subtitle {
+    font-size: 1rem;
+    opacity: .9;
+    font-family: var(--font-body);
+    margin-bottom: 42px;
+    letter-spacing: 1px;
+  }
+
+  /* 下のスクロール促進アロー */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,.7);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bob 2s ease-in-out infinite;
+  }
+  .scroll-hint svg { width: 18px; opacity: .7; }
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%     { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* アボウトセクション */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .about-card {
+    background: var(--clr-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 24px 18px;
+    text-align: center;
+    transition: box-shadow var(--transition);
+  }
+  .about-card:hover { box-shadow: var(--shadow); }
+  .about-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .about-card h3 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .about-card p { font-size: 13px; color: var(--clr-text-sub); }
+
+  @media (min-width: 768px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content h1 .year { font-size: 3.8rem; }
+    .hero-content .subtitle { font-size: 1.15rem; }
+    .about-grid { gap: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── ヘッダー ── -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">少林寺拳法部 <span>追いコン</span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">TOP</a>
+      <a href="schedule.html">スケジュール</a>
+      <a href="kusatsu.html">草津</a>
+      <a href="karuizawa.html">軽井沢</a>
+      <a href="lodge.html">宿舎</a>
+      <a href="cars.html">配車</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- モバイルナビ -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-panel" id="nav-panel">
+  <ul>
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="schedule.html">スケジュール</a></li>
+    <li><a href="kusatsu.html">草津</a></li>
+    <li><a href="karuizawa.html">軽井沢</a></li>
+    <li><a href="lodge.html">宿舎</a></li>
+    <li><a href="cars.html">配車</a></li>
+  </ul>
+</nav>
+
+<!-- ── ヒーロー ── -->
+<section class="hero">
+  <!--
+    📌 写真差し替え要領：
+       hero-bg の background-image に画像パスを設定してください。
+       例: background-image: url('images/kusatsu-yugata.jpg');
+       フォールバック色は background-color で別途指定 OK
+  -->
+  <div class="hero-bg" style="background-color:#5c6b54; background-image:url('images/hero-top.jpg');"></div>
+
+  <div class="hero-content">
+    <div class="tag">Farewell Party 2026</div>
+    <h1>
+      自治医科大学<br>少林寺拳法部
+      <span class="year">2026</span>
+      追い出しコンパ
+    </h1>
+    <p class="subtitle">草津・軽井沢　2Days</p>
+    <a href="schedule.html" class="btn btn-primary">スケジュールを見る</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v12M4 9l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ── アボウト ── -->
+<section class="section">
+  <h2 class="section-title fade-up">追いコン2026のご案内</h2>
+  <p class="section-sub fade-up">2日間にわたる旅行企画の詳細を下記よりご確認ください</p>
+
+  <div class="about-grid">
+    <a href="schedule.html" class="about-card fade-up">
+      <div class="icon">📅</div>
+      <h3>スケジュール</h3>
+      <p>2日間の詳細スケジュール</p>
+    </a>
+    <a href="kusatsu.html" class="about-card fade-up">
+      <div class="icon">♨️</div>
+      <h3>草津温泉</h3>
+      <p>1日目の訪問地</p>
+    </a>
+    <a href="karuizawa.html" class="about-card fade-up">
+      <div class="icon">🌲</div>
+      <h3>軽井沢</h3>
+      <p>2日目の訪問地</p>
+    </a>
+    <a href="lodge.html" class="about-card fade-up">
+      <div class="icon">🏠</div>
+      <h3>宿舎</h3>
+      <p>宿泊先の詳細</p>
+    </a>
+    <a href="cars.html" class="about-card fade-up" style="grid-column: span 2;">
+      <div class="icon">🚗</div>
+      <h3>配車一覧</h3>
+      <p>各車両の座席割り当て</p>
+    </a>
+  </div>
+</section>
+
+<!-- ── フォーター ── -->
+<footer>
+  <p class="footer-logo">自治医科大学 少林寺拳法部</p>
+  <p>© 2026 Jichi Medical University – Shōrin-ji Kenpō Bu</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スケジュール – 自治医大 少林寺拳法部 追いコン 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── ページヒーロー（短縮版）── */
+  .page-hero {
+    position: relative;
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero .hero-bg { background-color: #6b7a5e; background-image: url('images/schedule-hero.jpg'); }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to bottom, rgba(26,20,18,.15) 0%, rgba(26,20,18,.7) 100%);
+  }
+  .page-hero-content {
+    position: relative; z-index: 2;
+    padding: 0 22px 28px;
+    color: #fff;
+  }
+  .page-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  .page-hero-content p {
+    font-size: 13px;
+    opacity: .85;
+    margin-top: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero { height: 280px; }
+    .page-hero-content { padding-left: calc((100vw - 680px)/2 + 22px); }
+    .page-hero-content h1 { font-size: 2rem; }
+  }
+
+  /* ── タイムライン ── */
+  .day-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+  }
+  .day-label .badge {
+    background: var(--clr-accent);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    padding: 5px 18px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .day-label .line {
+    flex: 1;
+    height: 1px;
+    background: var(--clr-accent-lt);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  /* 縦線 */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--clr-accent-lt);
+    border-radius: 1px;
+  }
+
+  .tl-item {
+    position: relative;
+    padding: 14px 0 14px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  /* ドット */
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 20px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--clr-surface);
+    border: 2.5px solid var(--clr-accent);
+    transition: background var(--transition);
+  }
+  .tl-item:hover::before { background: var(--clr-accent); }
+
+  .tl-time {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--clr-accent);
+    white-space: nowrap;
+    min-width: 72px;
+    padding-top: 1px;
+  }
+
+  .tl-desc {
+    font-size: 15px;
+    color: var(--clr-text);
+  }
+  .tl-desc .note {
+    font-size: 12px;
+    color: var(--clr-text-sub);
+    margin-top: 2px;
+  }
+
+  /* ── 下部ボタン ── */
+  .nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .nav-buttons .btn { width: 100%; }
+
+  @media (min-width: 480px) {
+    .nav-buttons { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── ヘッダー ── -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">少林寺拳法部 <span>追いコン</span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">TOP</a>
+      <a href="schedule.html">スケジュール</a>
+      <a href="kusatsu.html">草津</a>
+      <a href="karuizawa.html">軽井沢</a>
+      <a href="lodge.html">宿舎</a>
+      <a href="cars.html">配車</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-panel" id="nav-panel">
+  <ul>
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="schedule.html">スケジュール</a></li>
+    <li><a href="kusatsu.html">草津</a></li>
+    <li><a href="karuizawa.html">軽井沢</a></li>
+    <li><a href="lodge.html">宿舎</a></li>
+    <li><a href="cars.html">配車</a></li>
+  </ul>
+</nav>
+
+<!-- ── ページヒーロー ── -->
+<div class="page-content">
+  <section class="page-hero">
+    <div class="hero-bg" style="background-color:#6b7a5e; background-image:url('images/schedule-hero.jpg');"></div>
+    <div class="page-hero-content">
+      <h1>全体スケジュール</h1>
+      <p>草津・軽井沢　2Days</p>
+    </div>
+  </section>
+
+  <!-- ── タイムライン ── -->
+  <section class="section">
+
+    <!-- 1日目 -->
+    <div class="day-label fade-up">
+      <span class="badge">DAY 1</span>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item fade-up">
+        <span class="tl-time">07:30</span>
+        <div class="tl-desc">集合<span class="note">自治医大 正面玄関</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">08:00</span>
+        <div class="tl-desc">出発<span class="note">バス・配車車両にて</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">11:00</span>
+        <div class="tl-desc">草津到着</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">11:00–13:00</span>
+        <div class="tl-desc">自由散策<span class="note">昼食は各自</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">14:30</span>
+        <div class="tl-desc">宿舎チェックイン</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">16:00–18:00</span>
+        <div class="tl-desc">温泉・休憩</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">19:00</span>
+        <div class="tl-desc">夕食<span class="note">宿舎にて</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">20:30</span>
+        <div class="tl-desc">追いコン懇親会<span class="note">宿舎・宴会場</span></div>
+      </div>
+    </div>
+
+    <!-- 2日目 -->
+    <div class="day-label fade-up" style="margin-top:40px;">
+      <span class="badge">DAY 2</span>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item fade-up">
+        <span class="tl-time">07:30</span>
+        <div class="tl-desc">朝食<span class="note">宿舎にて</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">09:00</span>
+        <div class="tl-desc">チェックアウト・出発</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">10:30</span>
+        <div class="tl-desc">軽井沢到着</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">10:30–13:00</span>
+        <div class="tl-desc">自由散策<span class="note">カフェ・ショッピングなど</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">14:00</span>
+        <div class="tl-desc">集合・出発</div>
+      </div>
+      <div class="tl-item fade-up">
+        <span class="tl-time">17:30</span>
+        <div class="tl-desc">自治医大到着・解散</div>
+      </div>
+    </div>
+
+    <!-- 遷移ボタン -->
+    <div class="nav-buttons">
+      <a href="kusatsu.html"   class="btn btn-outline fade-up">♨️ 草津について</a>
+      <a href="karuizawa.html" class="btn btn-outline fade-up">🌲 軽井沢について</a>
+      <a href="lodge.html"     class="btn btn-outline fade-up">🏠 宿舎を見る</a>
+      <a href="cars.html"      class="btn btn-outline fade-up">🚗 配車を見る</a>
+    </div>
+  </section>
+</div>
+
+<!-- ── フォーター ── -->
+<footer>
+  <p class="footer-logo">自治医科大学 少林寺拳法部</p>
+  <p>© 2026 Jichi Medical University – Shōrin-ji Kenpō Bu</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
